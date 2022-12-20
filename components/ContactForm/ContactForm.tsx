@@ -2,6 +2,7 @@ import classes from './ContactForm.module.css'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+import { useRouter } from 'next/router';
 
 type Inputs = {
     name: string
@@ -10,6 +11,8 @@ type Inputs = {
 }
 
 const ContactForm = () => {
+    const router = useRouter();
+
     const validationSchema = Yup.object().shape({
         name: Yup.string()
             .required('First Name is required'),
@@ -25,19 +28,29 @@ const ContactForm = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>(formValidationOptions);
 
-    const onSubmit = async (data: any) => {
-        console.log(data);
-        // const url = process.env.CONTACT_US_SEND_EMAIL === undefined ? '' : process.env.CONTACT_US_SEND_EMAIL;
-        // const response = await fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/x-www-form-urlencoded'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-    };
+    const onSubmit = async (formData: Inputs) => {
+        try {
+            const url = process.env.CONTACT_US_SEND_EMAIL_URL === undefined ? '' : process.env.CONTACT_US_SEND_EMAIL_URL;
 
-    // action={process.env.CONTACT_US_SEND_EMAIL} method="POST"
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: JSON.stringify(formData)
+            })
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Error sending email.');
+            }
+
+            router.push('/contact/success');
+        } catch (error) {
+            // Do some error handling   
+        }
+    };
 
     return (
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
