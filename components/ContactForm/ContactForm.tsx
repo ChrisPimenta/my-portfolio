@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { useForm } from "react-hook-form";
+import classes from './ContactForm.module.css'
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
@@ -8,7 +8,6 @@ type Inputs = {
     email: string
     message: string
 }
-
 
 const ContactForm = () => {
     const validationSchema = Yup.object().shape({
@@ -39,29 +38,30 @@ const ContactForm = () => {
     };
 
     // action={process.env.CONTACT_US_SEND_EMAIL} method="POST"
-    // { required: true, maxLength: 50 }
-    // { required: true, maxLength: 500 }
-
-    const Form = styled.form`
-        display: flex;
-        flex-direction: column;
-    `;
-
-    console.log(errors.name?.message);
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="name">Name</label>
-            <input {...register("name")} />
-            <div className="invalid-feedback">{errors.name?.message}</div>
-            <label htmlFor="name">Email</label>
-            <input {...register("email")} />
-            <div className="invalid-feedback">{errors.email?.message}</div>
-            <label htmlFor="message">Leave a message</label>
-            <textarea rows={5} {...register("message")} />
-            <div className="invalid-feedback">{errors.message?.message}</div>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={classes['form-control']}>
+                <label htmlFor="name">Name</label>
+                <input className={`${classes['form-control']} ${errors.name ? 'input-invalid' : ''}`} {...register("name")} />
+                <div className="invalid-feedback">{errors.name?.message}</div>
+            </div>
+
+            <div className={classes['form-control']}>
+                <label htmlFor="name">Email</label>
+                <input className={`${classes['form-control']} ${errors.email ? 'input-invalid' : ''}`} {...register("email")} />
+                <div className="invalid-feedback">{errors.email?.message}</div>
+            </div>
+
+
+            <div className={classes['form-control']}>
+                <label htmlFor="message">Leave a message</label>
+                <textarea className={`${classes['form-control']} ${errors.message ? 'input-invalid' : ''}`} rows={5} {...register("message")} />
+                <div className="invalid-feedback">{errors.message?.message}</div>
+            </div>
+
             <button type='submit'>Submit</button>
-        </Form>
+        </form>
     )
 }
 
