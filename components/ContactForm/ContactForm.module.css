@@ -41,15 +41,20 @@
     border: 1px solid #ccc;
 }
 
+.invalid input {
+    border: 1px solid #b40e0e;
+}
+
+.invalid input:focus {
+    border: 1px solid #ccc;
+}
+
+.invalid-feedback {
+    font-weight: 500;
+    color: #b40e0e;
+}
+
 /*
-
-.form-actions {
-    text-align: right;
-}
-
-.form-actions button {
-    margin-left: 1rem;
-}
 
 .invalid input {
     border: 1px solid #b40e0e;
@@ -61,6 +66,4 @@
     background-color: #fbe8d2;
 }
 
-.error-text {
-    color: #b40e0e;
-} */
+*/

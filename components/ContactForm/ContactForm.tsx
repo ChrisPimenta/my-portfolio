@@ -43,21 +43,21 @@ const ContactForm = () => {
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={classes['form-control']}>
                 <label htmlFor="name">Name</label>
-                <input className={`${classes['form-control']} ${errors.name ? 'input-invalid' : ''}`} {...register("name")} />
-                <div className="invalid-feedback">{errors.name?.message}</div>
+                <input className={`${classes['form-control']} ${errors.name ? 'invalid' : ''}`} {...register("name")} />
+                <div className={classes["invalid-feedback"]}>{errors.name?.message}</div>
             </div>
 
             <div className={classes['form-control']}>
                 <label htmlFor="name">Email</label>
-                <input className={`${classes['form-control']} ${errors.email ? 'input-invalid' : ''}`} {...register("email")} />
-                <div className="invalid-feedback">{errors.email?.message}</div>
+                <input className={`${classes['form-control']} ${errors.email ? 'invalid' : ''}`} {...register("email")} />
+                <div className={classes["invalid-feedback"]}>{errors.email?.message}</div>
             </div>
 
 
             <div className={classes['form-control']}>
                 <label htmlFor="message">Leave a message</label>
-                <textarea className={`${classes['form-control']} ${errors.message ? 'input-invalid' : ''}`} rows={5} {...register("message")} />
-                <div className="invalid-feedback">{errors.message?.message}</div>
+                <textarea className={`${classes['form-control']} ${errors.message ? 'invalid' : ''}`} rows={5} {...register("message")} />
+                <div className={classes["invalid-feedback"]}>{errors.message?.message}</div>
             </div>
 
             <button type='submit'>Submit</button>
