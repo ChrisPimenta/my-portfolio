@@ -10,8 +10,10 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
         <div>
             <MainNavigation />
             <main css={css`
-                width: 300;
-                height: 200;
+                margin: 3rem auto;
+                width: 90%;
+                max-width: 40rem;
+                background-color: darkgray;
             `}>
                 {children}
             </main>
