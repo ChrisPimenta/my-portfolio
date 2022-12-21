@@ -28,9 +28,6 @@
 .form button {
     font: inherit;
     font-weight: 500;
-    /* background-color: hotpink;
-    color: white;
-    border: 1px solid hotpink; */
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
