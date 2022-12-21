@@ -12,8 +12,9 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                 margin: 3rem auto;
                 width: 90%;
                 max-width: 40rem;
-                background-color: darkgray;
+                background-color: #222222;
                 padding: 2rem;
+                border-radius: 8px;
             `}>
                 {children}
             </main>
