@@ -7,6 +7,7 @@
 .navbar ul {
     display: flex;
     justify-content: center;
+    padding: 0px;
 }
 
 .navbar a {
@@ -20,7 +21,7 @@
 
 .navbar .active-link {
     padding-bottom: 0.2rem;
-    border-bottom: #98fb98 solid 0.4rem;
+    border-bottom: #98fb98 solid 0.3rem;
 }
 
 .navbar label,

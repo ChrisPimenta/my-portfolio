@@ -3,7 +3,7 @@ import classes from './MainNavigation.module.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai'
 import React, { useEffect, useState } from 'react';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const MainNavigation = () => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
