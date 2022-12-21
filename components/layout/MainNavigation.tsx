@@ -3,7 +3,7 @@ import classes from './MainNavigation.module.css'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai'
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 
 const MainNavigation = () => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -30,10 +30,10 @@ const MainNavigation = () => {
                 </label>
                 <div className={classes.menu}>
                     <ul>
-                        <Link href="/about">About</Link>
-                        <Link href="/projects">Projects</Link>
-                        <Link href="/experience">Work Experience</Link>
-                        <Link href="/contact">Contact</Link>
+                        <Link href="/about" className={pathname === '/about' ? classes['active-link'] : ''}>About</Link>
+                        <Link href="/projects" className={pathname === '/projects' ? classes['active-link'] : ''}>Projects</Link>
+                        <Link href="/experience" className={pathname === '/experience' ? classes['active-link'] : ''}>Work Experience</Link>
+                        <Link href="/contact" className={pathname === '/contact' ? classes['active-link'] : ''}>Contact</Link>
                     </ul>
                 </div>
             </nav>
