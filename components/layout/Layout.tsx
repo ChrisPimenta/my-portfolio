@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import MainNavigation from './MainNavigation';
 import { PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
